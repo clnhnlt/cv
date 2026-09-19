@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Céline HUNAULT</title>
+    <style>
+        :root {
+            --primary-color: #002B49; /* Bleu marine */
+            --bg-color: #E6F0FA; /* Fond général bleu très clair */
+            --card-color: #F7FAFC; /* Fond des blocs : ivoire doux (non blanc pur) */
+            --accent-color: #005A9E; /* Bleu moyen */
+            --text-color: #2D3748;
+            --light-text: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--card-color);
+            object-fit: cover;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            margin: 0.2rem 0;
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Bloc fixe pour le profil (non pliable) */
+        .profile-block {
+            background: var(--card-color);
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+        }
+
+        .profile-block h3 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Blocs dépliables */
+        details {
+            background: var(--card-color);
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        .content {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            border-top: 1px solid rgba(0, 43, 73, 0.1);
+        }
+
+        .date {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        ul {
+            margin: 0.5rem 0;
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            margin: 0.4rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .skills-group h4 {
+            margin: 0.5rem 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="photo.jpg" alt="Céline HUNAULT" class="profile-img">
+            <div>
+                <h1>Céline HUNAULT</h1>
+                <h2>Assistante de direction expérimentée</h2>
+            </div>
+            <div class="contact-info">
+                <span>📍 Briollay (49)</span>
+                <span>📞 <a href="tel:0661423164">06 61 42 31 64</a></span>
+                <span>✉️ <a href="mailto:celine.hunault@hotmail.com">celine.hunault@hotmail.com</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/celinehunault" target="_blank">LinkedIn</a></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Profil & Synthèse (fixe, non pliable) -->
+        <div class="profile-block">
+            <h3>Profil & Synthèse</h3>
+            <p>Professionnelle de l’assistance de direction avec plus de 20 ans d’expérience auprès de directions générales, financières, techniques et de projets.</p>
+            <p>Pratique régulière des outils IA (Gemini, Copilot, Claude, ChatGPT, NotebookLM, Perplexity) pour l'analyse, la rédaction, la gestion de projet et l'aide à la décision.</p>
+        </div>
+
+        <!-- Première expérience ouverte par défaut -->
+        <details open>
+            <summary>ALTER – Assistante de direction et de projets</summary>
+            <div class="content">
+                <p class="date">Depuis 2020</p>
+                <ul>
+                    <li>Organisation de réunions et rédaction des PV.</li>
+                    <li>Lien et coordination avec la collectivité, les services et les partenaires privés.</li>
+                    <li>Suivi des budgets, des marchés et reporting.</li>
+                    <li>Conception de présentations et préparation de dossiers.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>RICHEL ÉQUIPEMENT – Assistante Production / SAV</summary>
+            <div class="content">
+                <p class="date">2014 – 2020</p>
+                <p>Assistante de 10 techniciens :</p>
+                <ul>
+                    <li>Organisation des déplacements et plannings.</li>
+                    <li>Locations d’engins, gestion des contrats d’intérim et sous-traitants.</li>
+                    <li>Gestion de la flotte automobile, notes de frais et équipements EPI.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>JF CESBRON – Assistante DG & Président</summary>
+            <div class="content">
+                <p class="date">2014</p>
+                <p>Gestion des réunions, baux, sinistres et déplacements.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>CARGLASS – Assistante du DAF (Courbevoie)</summary>
+            <div class="content">
+                <p class="date">2006 – 2010</p>
+                <ul>
+                    <li>Organisation de réunions et séminaires.</li>
+                    <li>Gestion des indicateurs et des contrats d’assurances.</li>
+                    <li>Gestion du parc informatique.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>FIMAT / STEF-TFE – Assistante du DG (Paris)</summary>
+            <div class="content">
+                <p class="date">2004 – 2006</p>
+                <p>Gestion de l’agenda et des déplacements.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>GIDE NOYRETTE NOUEL – Assistante du DAF (Paris)</summary>
+            <div class="content">
+                <p class="date">2002 – 2003</p>
+                <p>Recouvrement des notes d’honoraires, courriers aux commissaires aux comptes, suivi d’indicateurs.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Cabinet CAMARD – Assistante du DAF (Paris)</summary>
+            <div class="content">
+                <p class="date">2000 – 2002</p>
+                <p>Gestion des services généraux, organisation de ventes aux enchères place Vendôme.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>CANON – Assistante du Directeur Marketing (Courbevoie)</summary>
+            <div class="content">
+                <p class="date">1999 – 2000</p>
+                <p>Organisation des réunions commerciales nationales.</p>
+            </div>
+        </details>
+
+        <!-- Formations -->
+        <details>
+            <summary>Formation & Diplômes</summary>
+            <div class="content">
+                <ul>
+                    <li><strong>1998 :</strong> Assistante de direction — Greta METEHOR Paris</li>
+                    <li><strong>1994 – 1996 :</strong> Histoire de l'Art — ICART Paris</li>
+                    <li><strong>1991 – 1994 :</strong> Droit (Niveau Licence) — Université d'Angers</li>
+                    <li><strong>1991 :</strong> Bac A2 (Littéraire) — Lycée Mongazon à Angers</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Compétences & Outils -->
+        <details>
+            <summary>Compétences & Outils informatiques</summary>
+            <div class="content">
+                <div class="skills-grid">
+                    <div class="skills-group">
+                        <h4>Savoir-faire & Métier</h4>
+                        <ul>
+                            <li>Organisation & planification</li>
+                            <li>Suivi de tâches & gestion administrative</li>
+                            <li>Gestion financière & budgétaire</li>
+                            <li>Reporting & tableaux de bord</li>
+                        </ul>
+                    </div>
+                    <div class="skills-group">
+                        <h4>Environnement & Logiciels</h4>
+                        <ul>
+                            <li>Microsoft 365 (SharePoint, Teams, Excel...)</li>
+                            <li>Outils de visioconférence (Zoom, Meet)</li>
+                            <li>GED (Visiativ) & ERP/CRM (Navision)</li>
+                            <li>IA : ChatGPT, Claude, Gemini, NotebookLM, Perplexity...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- Informations complémentaires -->
+        <details>
+            <summary>Langues & Centres d'intérêt</summary>
+            <div class="content">
+                <p style="margin-top:0.8rem;"><strong>Langue :</strong> Anglais (courant)</p>
+                <p><strong>Centres d'intérêt :</strong> Littérature, Histoire de l'art, Opéra, Cuisine, Engagement en association loisirs-culture.</p>
+            </div>
+        </details>
+
+    </div>
+
+</body>
+</html>
