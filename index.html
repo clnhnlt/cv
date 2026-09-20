@@ -254,9 +254,7 @@
         }
     </style>
 
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-
-
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
@@ -275,7 +273,7 @@
             </div>
             <div class="contact-info">
                 <!-- Bouton d'enregistrement VCF -->
-        <span>📇 <a href="#" id="download-vcard">Enregistrer mes coordonnées</a></span>
+                <span>📇 <a href="#" id="download-vcard">Enregistrer mes coordonnées</a></span>
             </div>
         </div>
     </header>
@@ -321,7 +319,7 @@
         <details>
             <summary>JF CESBRON – Assistante DG & Président</summary>
             <div class="content">
-                   <p class="date">
+                <p class="date">
                     <span class="tooltip">2014<span class="tooltip-text">Contrat d'intérim</span></span>
                 </p>
                 <p>Gestion des réunions, baux, sinistres et déplacements.</p>
@@ -339,7 +337,7 @@
                     <li>Organisation de réunions et séminaires.</li>
                     <li>Gestion des indicateurs et des contrats d’assurances.</li>
                     <li>Suivi du parc informatique groupe et relations avec le prestataire.</li>
-                    <li>Création de formulaires, organigrammes, plannings (80 personnes)</li>
+                    <li>Création de formulaires, organigrammes, plannings (80 personnes).</li>
                     <li>Reporting pour les régions.</li>
                 </ul>
             </div>
@@ -367,13 +365,11 @@
         <details>
             <summary>Cabinet d'expertises CAMARD – Assistante du DAF (Paris)</summary>
             <div class="content">
-                <p class="date">
-                    2000 - 2002
-                </p>
+                <p class="date">2000 - 2002</p>
                 <ul>
                     <li>Organisation de ventes aux enchères prestigieuses Place Vendôme.</li>
                     <li>Création de formulaires, gestion et suivi des fournisseurs et budgets.</li>
-                    <li>Réorganisation et aménagement d'un entrepôt de stockage (racks, palettes, alarmes…)</li>
+                    <li>Réorganisation et aménagement d'un entrepôt de stockage (racks, palettes, alarmes…).</li>
                 </ul>
                 <p><a href="camard.pdf" target="_blank" class="pdf-link">📄 Voir la lettre de recommandation (PDF)</a></p>
             </div>
@@ -416,6 +412,7 @@
                         <ul>
                             <li>Organisation & planification</li>
                             <li>Suivi de tâches & gestion administrative</li>
+                            <li>Prise de notes & rédaction de comptes-rendus</li>
                             <li>Gestion financière & budgétaire</li>
                             <li>Reporting & tableaux de bord</li>
                         </ul>
@@ -434,16 +431,16 @@
         </details>
 
         <details>
-            <summary>Langues & Centres d'intérêt</summary>
+            <summary>Langue & Centres d'intérêt</summary>
             <div class="content">
-                <p style="margin-top:0.8rem;"><strong>Langue :</strong> Anglais (courant)</p>
+                <p style="margin-top:0.8rem;"><strong>Langue :</strong> Anglais</p>
                 <p><strong>Centres d'intérêt :</strong> Littérature, Histoire de l'art, Opéra, Cuisine, Engagement en association loisirs-culture.</p>
             </div>
         </details>
 
     </div>
 
-<script>
+    <script>
         document.querySelectorAll('.tooltip').forEach(tooltip => {
             tooltip.addEventListener('click', (e) => {
                 e.stopPropagation(); // Empêche le clic de fermer la section pliable sur mobile
@@ -451,38 +448,34 @@
         });
     </script>
 
+    <script>
+        // Génération et téléchargement de la vCard (VCF)
+        document.getElementById('download-vcard').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const vcardData = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                'N;CHARSET=UTF-8:HUNAULT;Céline;;;',
+                'FN;CHARSET=UTF-8:Céline HUNAULT',
+                'TITLE;CHARSET=UTF-8:Assistante de direction expérimentée',
+                'TEL;TYPE=CELL:0661423164',
+                'EMAIL;TYPE=INTERNET:celine.hunault@hotmail.com',
+                'URL:https://linkedin.com/in/celinehunault',
+                'ADR;TYPE=HOME:;;;Briollay;;49125;France',
+                'END:VCARD'
+            ].join('\r\n'); // Utilisation de \r\n (standard vCard)
 
-<script>
-    // Génération et téléchargement de la vCard (VCF)
-document.getElementById('download-vcard').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const vcardData = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'N;CHARSET=UTF-8:HUNAULT;Céline;;;',
-        'FN;CHARSET=UTF-8:Céline HUNAULT',
-        'TITLE;CHARSET=UTF-8:Assistante de direction expérimentée',
-        'TEL;TYPE=CELL:0661423164',
-        'EMAIL;TYPE=INTERNET:celine.hunault@hotmail.com',
-        'URL:https://linkedin.com/in/celinehunault',
-        'ADR;TYPE=HOME:;;;Briollay;;49125;France',
-        'END:VCARD'
-    ].join('\r\n'); // Utilisation de \r\n (standard vCard)
-
-    // Ajout du BOM UTF-8 (\uFEFF) pour forcer Windows à lire en UTF-8
-    const blob = new Blob(['\uFEFF' + vcardData], { type: 'text/vcard;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.setAttribute('download', 'celine-hunault.vcf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
-</script>
-
-
-
+            // Ajout du BOM UTF-8 (\uFEFF) pour forcer Windows à lire en UTF-8
+            const blob = new Blob(['\uFEFF' + vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute('download', 'celine-hunault.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 
 </body>
 </html>
