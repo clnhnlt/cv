@@ -253,6 +253,10 @@
             color: var(--accent-color);
         }
     </style>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
 </head>
 <body>
 
@@ -313,7 +317,9 @@
         <details>
             <summary>JF CESBRON – Assistante DG & Président</summary>
             <div class="content">
-                <span class="tooltip">2014<span class="tooltip-text">Contrat d'intérim</span></span>
+                   <p class="date">
+                    <span class="tooltip">2014<span class="tooltip-text">Contrat d'intérim</span></span>
+                </p>
                 <p>Gestion des réunions, baux, sinistres et déplacements.</p>
                 <p><a href="cesbron.pdf" target="_blank" class="pdf-link">📄 Voir la lettre de recommandation (PDF)</a></p>
             </div>
@@ -432,6 +438,15 @@
         </details>
 
     </div>
+
+<script>
+        document.querySelectorAll('.tooltip').forEach(tooltip => {
+            tooltip.addEventListener('click', (e) => {
+                e.stopPropagation(); // Empêche le clic de fermer la section pliable sur mobile
+            });
+        });
+    </script>
+
 
 </body>
 </html>
