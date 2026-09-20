@@ -125,7 +125,7 @@
             margin-bottom: 1rem;
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
+            overflow: visible; /* Permet à l'infobulle de dépasser sans être coupée */
         }
 
         summary {
@@ -139,6 +139,7 @@
             justify-content: space-between;
             align-items: center;
             user-select: none;
+            border-radius: 6px;
         }
 
         summary::-webkit-details-marker {
@@ -166,6 +167,53 @@
             color: #666;
             margin-top: 0.8rem;
             margin-bottom: 0.4rem;
+        }
+
+        /* Style pour les infobulles au survol */
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 180px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            font-weight: normal;
+            font-style: normal;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--primary-color) transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
         }
 
         .pdf-link {
@@ -274,7 +322,9 @@
         <details>
             <summary>CARGLASS – Assistante du DAF (Courbevoie)</summary>
             <div class="content">
-                <p class="date">2006 – 2010</p>
+                <p class="date">
+                    2006 – <span class="tooltip">2010<span class="tooltip-text">Déménagement à Angers</span></span>
+                </p>
                 <ul>
                     <li>Organisation de réunions et séminaires.</li>
                     <li>Gestion des indicateurs et des contrats d’assurances.</li>
@@ -284,9 +334,11 @@
         </details>
 
         <details>
-            <summary>FIMAT / STEF-TFE – Assistante du DG (Paris)</summary>
+            <summary>FIMAT, STEF-TFE – Assistante du DG (Paris)</summary>
             <div class="content">
-                <p class="date">2004 – 2006</p>
+                <p class="date">
+                    <span class="tooltip">2004 - 2006<span class="tooltip-text">Contrats d'intérim</span></span>
+                </p>
                 <p>Gestion de l’agenda et des déplacements.</p>
             </div>
         </details>
@@ -302,7 +354,9 @@
         <details>
             <summary>Cabinet d'expertises CAMARD – Assistante du DAF (Paris)</summary>
             <div class="content">
-                <p class="date">2000 – 2002</p>
+                <p class="date">
+                    <span class="tooltip">2000 - 2002<span class="tooltip-text">Naissance du 1er enfant</span></span>
+                </p>
                 <p>Gestion des services généraux, organisation de ventes aux enchères place Vendôme.</p>
                 <p><a href="camard.pdf" target="_blank" class="pdf-link">📄 Voir la lettre de recommandation (PDF)</a></p>
             </div>
@@ -311,7 +365,9 @@
         <details>
             <summary>CANON – Assistante du Directeur Marketing (Courbevoie)</summary>
             <div class="content">
-                <p class="date">1999 – 2000</p>
+                <p class="date">
+                    <span class="tooltip">1999 - 2000<span class="tooltip-text">Contrat CDD</span></span>
+                </p>
                 <p>Organisation des réunions commerciales nationales.</p>
                 <p><a href="canon.pdf" target="_blank" class="pdf-link">📄 Voir la lettre de recommandation (PDF)</a></p>
             </div>
