@@ -273,6 +273,10 @@
                 <span>✉️ <a href="mailto:celine.hunault@hotmail.com">celine.hunault@hotmail.com</a></span>
                 <span>🔗 <a href="https://linkedin.com/in/celinehunault" target="_blank">LinkedIn</a></span>
             </div>
+            <div class="contact-info">
+                <!-- Bouton d'enregistrement VCF -->
+        <span>📇 <a href="#" id="download-vcard">Enregistrer mes coordonnées</a></span>
+            </div>
         </div>
     </header>
 
@@ -329,7 +333,7 @@
             <summary>CARGLASS – Assistante du DAF (Courbevoie)</summary>
             <div class="content">
                 <p class="date">
-                    2006 – <span class="tooltip">2010<span class="tooltip-text">Déménagement à Angers</span></span>
+                    2006 – <span class="tooltip">2010<span class="tooltip-text">Mobilité géographique à Angers</span></span>
                 </p>
                 <ul>
                     <li>Organisation de réunions et séminaires.</li>
@@ -364,7 +368,7 @@
             <summary>Cabinet d'expertises CAMARD – Assistante du DAF (Paris)</summary>
             <div class="content">
                 <p class="date">
-                    2000 - <span class="tooltip">2002<span class="tooltip-text">Naissance du 1er enfant</span></span>
+                    2000 - 2002
                 </p>
                 <ul>
                     <li>Organisation de ventes aux enchères prestigieuses Place Vendôme.</li>
@@ -446,6 +450,38 @@
             });
         });
     </script>
+
+
+<script>
+    // Génération et téléchargement de la vCard (VCF)
+document.getElementById('download-vcard').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const vcardData = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N;CHARSET=UTF-8:HUNAULT;Céline;;;',
+        'FN;CHARSET=UTF-8:Céline HUNAULT',
+        'TITLE;CHARSET=UTF-8:Assistante de direction expérimentée',
+        'TEL;TYPE=CELL:0661423164',
+        'EMAIL;TYPE=INTERNET:celine.hunault@hotmail.com',
+        'URL:https://linkedin.com/in/celinehunault',
+        'ADR;TYPE=HOME:;;;Briollay;;49125;France',
+        'END:VCARD'
+    ].join('\r\n'); // Utilisation de \r\n (standard vCard)
+
+    // Ajout du BOM UTF-8 (\uFEFF) pour forcer Windows à lire en UTF-8
+    const blob = new Blob(['\uFEFF' + vcardData], { type: 'text/vcard;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', 'celine-hunault.vcf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+</script>
+
+
 
 
 </body>
